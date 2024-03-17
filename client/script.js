@@ -208,3 +208,11 @@ menuBtn.addEventListener('click', () => {
   // Toggle the visibility of the logo div
   containerDiv.classList.toggle('show');
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    var floatingPrompt = document.getElementById("floating-prompt");
+    floatingPrompt.classList.remove("hide");
+  }, 5000); // Delay for 5 seconds (5000 milliseconds)
+});
+

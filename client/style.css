@@ -24,6 +24,7 @@ body {
 
 #container {
   width: 20%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,7 +161,7 @@ form img {
 
 #navieText{
   text-align: center;
-  font-size: 20px; /* Increase font size */
+  font-size: 25px; /* Increase font size */
   color: #cfe4df;
   margin-bottom: 950px; /* Add margin to move it below the image */
   padding: 15px;
@@ -175,7 +176,7 @@ form img {
   justify-content: center; /* Center items horizontally */
   background: #40414F;
   border-radius: 10px;
-  width: 50%;
+  width: 60%;
   height: 7%;
   text-align: center;
   cursor: pointer;
@@ -192,7 +193,6 @@ form img {
   background: #f0f0f1; /* Change background color on hover */
 }
 
-
 #Newchatlogo {
   margin-right: 10px; /* Adjust margin between the image and text */
   height: 30px;
@@ -202,9 +202,9 @@ form img {
 #sidebar {
   width: 100%;
   position:absolute;
-  height: 60%; /* Adjust height based on your layout */
+  height: 62%; /* Adjust height based on your layout */
   background: #2a2b37;
-  border-radius: 2px;
+  border-radius: 1px;
   margin-top: 243px; /* Adjust margin as needed */
   padding: 20px;
   color: #b6b4b4;
@@ -244,15 +244,15 @@ h2{
   justify-content: center;
   background: #40414F;
   width: 16%;
-  height: 9%;
-  border-radius: 5px;
+  height: 8%;
+  border-radius: 1px;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   position: absolute;
   top: 0; /* Adjust positioning based on your layout */
   right: 0; /* Adjust positioning based on your layout */
-  margin-top: 20px; /* Adjust margin as needed */
-  margin-right: 210px; /* Adjust margin as needed */
+  margin-top: 21px; /* Adjust margin as needed */
+  margin-right: 209px; /* Adjust margin as needed */
   padding-left: 10px;
   padding-right: 10px;
   transition: background-color 0.3s;
@@ -284,6 +284,7 @@ h2{
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
   color: white;
+  
 }
 
 #floating-prompt span{
@@ -316,6 +317,12 @@ h2{
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
+  #container {
+    display: none; /* Hide the whole container div */
+    animation: none; /* Remove animation */
+    z-index: 1000; /* Set a higher z-index for the container */
+  }
+
   #app {
     width: 100%; /* Change to 100% to fill the entire viewport width */
     height: 100vh;
@@ -327,16 +334,35 @@ h2{
     justify-content: space-between;
   }
   
-
   #floating-prompt {
-    width: 60%; /* Adjust width to fit smaller screens */
-    max-width: 90%; /* Limit maximum width */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #5848a1;
+    padding: 5px;
     height: 30%;
-    padding: 10px; /* Adjust padding */
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: opacity 0.5s ease;
+    display: flex;
     align-items: center;
-    transform: translate(-65%, -50%);
-    
+    justify-content: center;
+    color: white;
   }
+  
+  #floating-prompt span {
+    font-size: 12px;
+    text-align: left;
+    position: relative;
+  }
+  
+  #floating-prompt.hide {
+    opacity: 0;
+  }
+  
   #floating-prompt-logo{
     height: 20%;
   }
@@ -371,14 +397,14 @@ h2{
   #icon {
     margin-top: 5px;
     padding-top: 5px;
-    width: 60px; /* Set the width to 100% to take the full width */
+    width: 100px; /* Set the width to 100% to take the full width */
     height: 90px;
     align-items: center;
   }
   
   #logo {
     width: 80%; /* Set the width to 100% to take the full width */
-    height: 94%;
+    height: 100%;
     background: #545774;
     position: absolute;
     display: flex;
@@ -393,17 +419,19 @@ h2{
     justify-content: center; /* Center items horizontally */
     background: #40414F;
     border-radius: 10px;
-    width: 50%;
+    width: 60%; /* Adjust width to fit smaller screens */
     height: 7%;
     text-align: center;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    position: absolute;
-    z-index: 2;
-    margin-top: 150px;
+    position: fixed; /* Change position to fixed */
+    bottom: 440px; /* Adjust the distance from the bottom */
+    left: 40%; /* Move to the center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
     transition: background-color 0.3s; /* Add transition for smooth color change */
     color: black;
+    z-index: 999; /* Ensure button stays above other content */
   }
   
   #new-chat-btn:hover {
@@ -423,11 +451,10 @@ h2{
   #sidebar {
     width: 100%;
     position:absolute;
-    height: 67%; /* Adjust height based on your layout */
+    height: 63%; /* Adjust height based on your layout */
     background: #2a2b37;
     border-radius: 2px;
-    margin-top: 243px; /* Adjust margin as needed */
-    padding: 20px;
+    margin-top: 247px; /* Adjust margin as needed */
     color: #b6b4b4;
     overflow-y:auto;
     display:flexbox
@@ -465,16 +492,16 @@ h2{
     justify-content: center;
     background: #40414F;
     width: 19%;
-    height: 9%;
-    border-radius: 5px;
+    height: 10%;
+    border-radius: 2px;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     top: 0; /* Adjust positioning based on your layout */
     right: 0; /* Adjust positioning based on your layout */
-    margin-top: 20px; /* Adjust margin as needed */
-    margin-right: 210px; /* Adjust margin as needed */
-    padding-left: 10px;
+    margin-top: 21px; /* Adjust margin as needed */
+    margin-right: 222px; /* Adjust margin as needed */
+    padding-left: 5px;
     padding-right: 10px;
     transition: background-color 0.3s;
     color: black;
