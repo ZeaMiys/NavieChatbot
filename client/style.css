@@ -41,7 +41,7 @@ body {
   gap: 10px;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   scroll-behavior: smooth;
 }
 
@@ -92,13 +92,12 @@ body {
 .message {
   flex: 1;
   color: #dcdcdc;
-  font-size: 15px;
+  font-size: 16px;
   max-width: 100%;
   overflow-x: scroll;
   white-space: pre-wrap;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  transition: background-color 0.3s ease; /* Add transition effect */
 }
 
 /* hides scrollbar */
@@ -201,16 +200,19 @@ form img {
 }
 
 #sidebar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  position:absolute;
-  height: 62%; /* Adjust height based on your layout */
+  height: calc(100% - 243px); /* Adjusted to match the container's height */
+  max-height: 62%; /* Adjusted to a maximum height of 62% */
   background: #2a2b37;
   border-radius: 1px;
-  margin-top: 243px; /* Adjust margin as needed */
   padding: 20px;
   color: #b6b4b4;
-  overflow-y:auto;
-  display:flexbox
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; /* Ensures items stack vertically */
 }
 
 #chat-history-list {
@@ -237,25 +239,25 @@ h2{
   line-height: normal;
   font-weight:lighter;
   padding: 8px;
+  height: 35px;
+  width: 100%;
+  position: relative;
 }
 
 #clear-chat-btn {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: left;
   background: #40414F;
   width: 16%;
-  height: 8%;
+  height: 35px;
   border-radius: 1px;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   position: absolute;
   top: 0; /* Adjust positioning based on your layout */
   right: 0; /* Adjust positioning based on your layout */
-  margin-top: 21px; /* Adjust margin as needed */
-  margin-right: 209px; /* Adjust margin as needed */
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-top: 20px; /* Adjust margin as needed */
+  margin-right: 80%;
   transition: background-color 0.3s;
   color: black;
   z-index: 1; /* Set z-index to display the button in front */

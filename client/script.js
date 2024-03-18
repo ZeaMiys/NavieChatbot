@@ -21,8 +21,8 @@ function loader(element) {
 
 async function typeText(element, text) {
   let index = 0;
-  const speed = 50; // Adjust the typing speed (milliseconds per character)
-  const delayAfterTyping = 1000; // Adjust the delay after typing all characters (milliseconds)
+  const speed = 20; // Adjust the typing speed (milliseconds per character)
+  const delayAfterTyping = 500; // Adjust the delay after typing all characters (milliseconds)
 
   // Clear the existing content of the element
   element.innerHTML = '';
@@ -227,5 +227,5 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     var floatingPrompt = document.getElementById("floating-prompt");
     floatingPrompt.classList.remove("hide");
-  }, 5000); // Delay for 5 seconds (5000 milliseconds)
+  }, 2000); // Delay for 3 seconds (3000 milliseconds)
 });
