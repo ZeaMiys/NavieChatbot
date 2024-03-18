@@ -208,6 +208,7 @@ form img {
   max-height: 62%; /* Adjusted to a maximum height of 62% */
   background: #2a2b37;
   border-radius: 1px;
+  margin-top: 20px;
   padding: 20px;
   color: #b6b4b4;
   overflow-y: auto;
@@ -280,7 +281,6 @@ h2{
   width: 35%;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
   z-index: 999;
   transition: opacity 0.5s ease;
   display: flex; /* Add flexbox display */
@@ -477,6 +477,7 @@ h2{
     font-weight:lighter;
     padding: 13px;
     height: 11%;
+    width: 100%;
   }
   
   #clear-chat-btn {
@@ -493,9 +494,7 @@ h2{
     top: 0; /* Adjust positioning based on your layout */
     right: 0; /* Adjust positioning based on your layout */
     margin-top: 21px; /* Adjust margin as needed */
-    margin-right: 222px; /* Adjust margin as needed */
-    padding-left: 5px;
-    padding-right: 10px;
+    margin-right: 222px;
     transition: background-color 0.3s;
     color: black;
     z-index: 1; /* Set z-index to display the button in front */

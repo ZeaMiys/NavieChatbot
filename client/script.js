@@ -90,33 +90,37 @@ async function handleSubmit(e) {
   // Store chat message in local storage
   const chatMessage = data.get('prompt');
 
-  // User stripe
+  // User stripe (added first)
   chatContainer.innerHTML += chatStripe(false, chatMessage);
+
+  // Focus scroll to the bottom
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+
   // Bot stripe
   const uniqueID = generateUniqueID();
   chatContainer.innerHTML += chatStripe(true, '', uniqueID); // Leave the message content empty initially
   loader(document.getElementById(uniqueID)); // Start loader animation
 
-  // Focus scroll to the bottom
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-
-  const chatHistory = getChatHistory();
-  chatHistory.push(chatMessage);
-  localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
-
-  // call server
+  // Call server
   sendMessageToServer(chatMessage)
     .then(({ data }) => {
       clearInterval(loadInterval); // Clear loader animation interval
       // Call typeText function to simulate typing animation
       typeText(document.getElementById(uniqueID), data[1]);
+
+      // Once bot response is received, save the conversation to local storage
+      const conversation = { question: chatMessage, response: data[1] };
+      const chatHistory = getChatHistory();
+      chatHistory.push(conversation);
+      localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
     })
     .catch((error) => {
       clearInterval(loadInterval); // Clear loader animation interval
       document.getElementById(uniqueID).innerText = 'Sorry, I cannot process as of this moment!';
       console.error(error);
-    })
+    });
 }
+
 
 form.addEventListener('submit', handleSubmit);
 form.addEventListener('keyup', (e) => {
@@ -175,21 +179,20 @@ function getChatHistory() {
   return chatHistory;
 }
 
-// Function to display full chat message when clicked
+// Function to display full conversation when clicked
 function displayFullChat(conversation) {
   chatContainer.innerHTML = ''; // Clear chat container
-  chatContainer.innerHTML += chatStripe(false, conversation); // Display full conversation
+  chatContainer.innerHTML += chatStripe(false, conversation.question); // Display user's question
+  chatContainer.innerHTML += chatStripe(true, conversation.response); // Display bot's response
 }
 
-// Function to display chat history in the sidebar
 function displayChatHistory() {
   const chatHistory = getChatHistory();
 
   chatHistoryList.innerHTML = ''; // Clear previous history
   chatHistory.forEach((conversation) => {
-    const firstTenWords = conversation.split(' ').slice(0, 10).join(' ');
     const listItem = document.createElement('li');
-    listItem.textContent = firstTenWords;
+    listItem.textContent = conversation.question;
 
     // Add click event listener to display full chat
     listItem.addEventListener('click', () => {
@@ -221,7 +224,6 @@ menuBtn.addEventListener('click', () => {
   // Toggle the visibility of the container div
   containerDiv.classList.toggle('show');
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
