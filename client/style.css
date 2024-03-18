@@ -320,7 +320,7 @@ h2{
   #container {
     display: none; /* Hide the whole container div */
     animation: none; /* Remove animation */
-    z-index: 1000; /* Set a higher z-index for the container */
+   
   }
 
   #app {
@@ -391,11 +391,10 @@ h2{
   
   #container.show {
     display: block; /* Show the container div */
-    
   }
   
   #icon {
-    margin-top: 5px;
+    margin-top: 10px;
     padding-top: 5px;
     width: 100px; /* Set the width to 100% to take the full width */
     height: 90px;
@@ -426,7 +425,7 @@ h2{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     position: fixed; /* Change position to fixed */
-    bottom: 440px; /* Adjust the distance from the bottom */
+    top: 1px; 
     left: 40%; /* Move to the center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     transition: background-color 0.3s; /* Add transition for smooth color change */
@@ -440,7 +439,7 @@ h2{
 
   #navieText{
     text-align: center;
-    font-size: 22px; /* Increase font size */
+    font-size: 25px; /* Increase font size */
     color: #cfe4df;
     margin-bottom: 950px; /* Add margin to move it below the image */
     padding: 15px;
@@ -484,6 +483,7 @@ h2{
     line-height: normal;
     font-weight:lighter;
     padding: 13px;
+    height: 11%;
   }
   
   #clear-chat-btn {
@@ -513,9 +513,6 @@ h2{
     background: #f0f0f1; /* Change background color on hover */
   }
   
-  
-  
-
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -525,10 +522,6 @@ h2{
     }
   }
   
- 
-  
-
-
 
 }
 
