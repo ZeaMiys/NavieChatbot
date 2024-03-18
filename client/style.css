@@ -92,12 +92,13 @@ body {
 .message {
   flex: 1;
   color: #dcdcdc;
-  font-size: 20px;
+  font-size: 15px;
   max-width: 100%;
   overflow-x: scroll;
   white-space: pre-wrap;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  transition: background-color 0.3s ease; /* Add transition effect */
 }
 
 /* hides scrollbar */
@@ -309,18 +310,13 @@ h2{
   margin-inline-start: 90%;
   display: none;
   margin-top: 10px;
-} 
-
-
-
-
+}
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
   #container {
     display: none; /* Hide the whole container div */
     animation: none; /* Remove animation */
-   
   }
 
   #app {
@@ -340,16 +336,14 @@ h2{
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #5848a1;
-    padding: 5px;
-    height: 30%;
+    height: 25%;
     width: 50%;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 999;
     transition: opacity 0.5s ease;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:left;
     color: white;
   }
   
@@ -361,14 +355,11 @@ h2{
   
   #floating-prompt.hide {
     opacity: 0;
+    pointer-events: none; /* Disable pointer events when hidden */
   }
   
   #floating-prompt-logo{
-    height: 20%;
-  }
-
-  #floating-prompt span{
-    font-size: 12px;
+    height: 30%;
   }
 
   #menu-btn{
@@ -430,7 +421,7 @@ h2{
     transform: translateX(-50%); /* Center horizontally */
     transition: background-color 0.3s; /* Add transition for smooth color change */
     color: black;
-    z-index: 999; /* Ensure button stays above other content */
+    z-index: 1; /* Ensure button stays above other content */
   }
   
   #new-chat-btn:hover {
@@ -450,7 +441,7 @@ h2{
   #sidebar {
     width: 100%;
     position:absolute;
-    height: 63%; /* Adjust height based on your layout */
+    height: 63vh; /* Adjust height based on your layout */
     background: #2a2b37;
     border-radius: 2px;
     margin-top: 247px; /* Adjust margin as needed */

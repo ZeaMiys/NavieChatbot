@@ -19,16 +19,28 @@ function loader(element) {
   }, 300);
 }
 
-function typeText(element, text) {
+async function typeText(element, text) {
   let index = 0;
-  let interval = setInterval(() => {
+  const speed = 50; // Adjust the typing speed (milliseconds per character)
+  const delayAfterTyping = 1000; // Adjust the delay after typing all characters (milliseconds)
+
+  // Clear the existing content of the element
+  element.innerHTML = '';
+
+  // Simulate typing animation
+  const typingInterval = setInterval(() => {
     if (index < text.length) {
       element.innerHTML += text.charAt(index);
+      index++;
     } else {
-      clearInterval(interval);
+      // Clear the interval after typing all characters
+      clearInterval(typingInterval);
+      // Add a delay after typing all characters (optional)
+      setTimeout(() => {
+        // Do something after typing completion, if needed
+      }, delayAfterTyping);
     }
-    index++;
-  }, 20);
+  }, speed);
 }
 
 function generateUniqueID() {
@@ -82,8 +94,8 @@ async function handleSubmit(e) {
   chatContainer.innerHTML += chatStripe(false, chatMessage);
   // Bot stripe
   const uniqueID = generateUniqueID();
-  chatContainer.innerHTML += chatStripe(true, '....', uniqueID);
-  loader(document.getElementById(uniqueID));
+  chatContainer.innerHTML += chatStripe(true, '', uniqueID); // Leave the message content empty initially
+  loader(document.getElementById(uniqueID)); // Start loader animation
 
   // Focus scroll to the bottom
   chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -95,11 +107,12 @@ async function handleSubmit(e) {
   // call server
   sendMessageToServer(chatMessage)
     .then(({ data }) => {
-      clearInterval(loadInterval);
-      document.getElementById(uniqueID).innerText = data[1];
+      clearInterval(loadInterval); // Clear loader animation interval
+      // Call typeText function to simulate typing animation
+      typeText(document.getElementById(uniqueID), data[1]);
     })
     .catch((error) => {
-      clearInterval(loadInterval)
+      clearInterval(loadInterval); // Clear loader animation interval
       document.getElementById(uniqueID).innerText = 'Sorry, I cannot process as of this moment!';
       console.error(error);
     })
@@ -205,9 +218,10 @@ const menuBtn = document.getElementById('menu-btn');
 const containerDiv = document.getElementById('container');
 
 menuBtn.addEventListener('click', () => {
-  // Toggle the visibility of the logo div
+  // Toggle the visibility of the container div
   containerDiv.classList.toggle('show');
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
@@ -215,4 +229,3 @@ document.addEventListener("DOMContentLoaded", function () {
     floatingPrompt.classList.remove("hide");
   }, 5000); // Delay for 5 seconds (5000 milliseconds)
 });
-
