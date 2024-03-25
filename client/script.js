@@ -129,6 +129,70 @@ form.addEventListener('keyup', (e) => {
   }
 });
 
+
+
+function displayPromptQuestions() {
+  const promptQuestions = ['Grading System of Bisu?', 'Registration Requirements?', 'Scholarship?', 'Offenses to Avoid?'];
+
+  // Create a container for all questions
+  const promptContainer = document.createElement('div');
+  promptContainer.classList.add('prompt-container');
+  promptContainer.setAttribute('id', 'prompt-container'); // Add an ID for easier access
+
+  // Display each prompt question individually
+  promptQuestions.forEach((question) => {
+    const button = document.createElement('button');
+    button.textContent = question;
+    button.addEventListener('click', () => {
+      // When clicked, set the prompt message and submit the form
+      const textarea = document.querySelector('textarea[name="prompt"]');
+      textarea.value = question;
+      handleSubmit(new Event('submit'));
+      // Hide the prompt container, message prompt, and question prompt
+      hidePrompts();
+    });
+
+    promptContainer.appendChild(button); // Append the button to the container
+  });
+
+  // Append the container with all questions to the app div after a delay
+  setTimeout(() => {
+    document.getElementById('app').appendChild(promptContainer);
+  }, 3000); // Delay in milliseconds (3 seconds)
+}
+
+// Function to hide the prompt container, message prompt, and question prompt
+function hidePrompts() {
+  const promptContainer = document.getElementById('prompt-container');
+  promptContainer.classList.add('hidden'); // Add a CSS class to hide the prompt container
+
+  const floatingPrompt = document.getElementById('floating-prompt');
+  floatingPrompt.classList.add('hide');
+
+  // You may choose to hide other prompts in a similar way if necessary
+
+  // Ensure that the text area remains visible and interactive
+}
+
+// Call function to display prompt questions after 3 seconds
+displayPromptQuestions();
+
+// Add event listener to hide the prompt container when clicking on any question
+document.querySelectorAll('.prompt-container button').forEach(button => {
+  button.addEventListener('click', () => {
+    hidePrompts();
+  });
+});
+
+// Add event listener to hide the prompt container when typing a question in the text area
+document.querySelector('textarea[name="prompt"]').addEventListener('input', () => {
+  hidePrompts();
+});
+
+
+
+
+
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -231,3 +295,5 @@ document.addEventListener("DOMContentLoaded", function () {
     floatingPrompt.classList.remove("hide");
   }, 2000); // Delay for 3 seconds (3000 milliseconds)
 });
+
+

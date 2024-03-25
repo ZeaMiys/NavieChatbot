@@ -38,10 +38,10 @@ body {
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2px;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding-bottom: 10px;
+  padding-bottom: 2px;
   scroll-behavior: smooth;
 }
 
@@ -66,7 +66,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 10px;
+  gap: 2px;
 }
 
 .profile {
@@ -98,7 +98,12 @@ body {
   white-space: pre-wrap;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  padding: 5px 10px; /* Adjust padding to match the user's message */
+  margin: 0; /* Remove margin to align with user's message */
+  display: flex;
+  align-items: center;
 }
+
 
 /* hides scrollbar */
 .message::-webkit-scrollbar {
@@ -109,11 +114,11 @@ form {
   width: 90%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 5px;
   background: #40414F;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 5px;
 }
 
 textarea {
@@ -208,7 +213,6 @@ form img {
   max-height: 62%; /* Adjusted to a maximum height of 62% */
   background: #2a2b37;
   border-radius: 1px;
-  margin-top: 5px;
   padding: 20px;
   color: #b6b4b4;
   overflow-y: auto;
@@ -314,6 +318,67 @@ h2{
   margin-top: 10px;
 }
 
+
+/* CSS for the prompt questions */
+.prompt-container {
+  margin-bottom: 10px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  margin-top: 500px;
+  gap: 15px;
+}
+
+.left-prompt-container {
+  float: left;
+  clear: both;
+  width: 20%; /* Adjust as needed */
+  left: 350px;
+  margin-top: 450px;
+ 
+}
+
+.right-prompt-container {
+  float: right;
+  clear: both;
+  width: 20%; /* Adjust as needed */
+  position: absolute;
+  display: flex;
+  right: 100px;
+  margin-top: 450px;
+  position: absolute;
+  padding-top: 10px;
+  
+}
+
+/* Style for the buttons */
+.prompt-container button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #40414f59; /* Adjust as needed */
+  border: 1px solid #f0edede7; /* Adjust as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Modified box-shadow */
+  border-radius: 5px;
+  text-align: center;
+  color: #fff9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.prompt-container button:hover {
+  background-color: #e0e0e0; /* Adjust as needed */
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
   #container {
@@ -322,19 +387,21 @@ h2{
   }
 
   #app {
-    width: 100%; /* Change to 100% to fill the entire viewport width */
+    width: 80%; /* Change to 80% for responsiveness */
     height: 100vh;
-    margin-left: 0; /* Remove left margin */
     background: #343541;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    position: relative; /* Ensure relative positioning */
+    left: 30%; /* Move to the center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
   }
   
   #floating-prompt {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #5848a1;
@@ -364,8 +431,75 @@ h2{
     height: 30%;
   }
 
+
+    /* CSS for the prompt questions */
+  .prompt-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    bottom: 80px;
+  }
+
+  /* Style for the buttons */
+  .prompt-container button {
+    display: block;
+    width: 90%;
+    background-color: #40414f59; /* Adjust as needed */
+    border: 1px solid #f0edede7; /* Adjust as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Modified box-shadow */
+    border-radius: 5px;
+    text-align: center;
+    color: #fff9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .prompt-container button:hover {
+    background-color: #e0e0e0; /* Adjust as needed */
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  textarea {
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px;
+    background: transparent;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+
+  .message {
+    flex: 1;
+    color: #dcdcdc;
+    font-size: 13px;
+    max-width: 100%;
+    overflow-x: scroll;
+    white-space: pre-wrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 5px 10px; /* Adjust padding to match the user's message */
+    margin: 0; /* Remove margin to align with user's message */
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  /* hides scrollbar */
+  .message::-webkit-scrollbar {
+    display: none;
+  }
+
+
   #menu-btn{
     display: block; /* Display menu button below logo on small screens */
+    z-index: 10000; /* Ensure the menu button remains above other elements */
+    
   }
 
   #menu-btn.show{
@@ -378,9 +512,14 @@ h2{
     display: none;
     animation: fadeIn 1s ease-in-out;
     box-sizing: border-box;
-    margin-left: auto; /* Set left margin to auto */
-    margin-right: 0; /* Remove right margin */
+    margin-left: auto;
+    margin-right: 0;
+    position: fixed; /* Ensure the container stays fixed */
+    top: 0; /* Position at the top of the viewport */
+    left: 0; /* Position at the left of the viewport */
+    z-index: 9999; /* Set a high z-index value */
   }
+
   
   #container.show {
     display: block; /* Show the container div */
