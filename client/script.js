@@ -132,7 +132,7 @@ form.addEventListener('keyup', (e) => {
 
 
 function displayPromptQuestions() {
-  const promptQuestions = ['Grading System of Bisu?', 'Registration Requirements?', 'Scholarship?', 'Offenses to Avoid?'];
+  const promptQuestions = ['Grading System of Bisu?', 'Registration Requirements?', 'What are the scholarship offers available at BISU?', 'University Officials?'];
 
   // Create a container for all questions
   const promptContainer = document.createElement('div');

@@ -281,8 +281,8 @@ h2{
   transform: translate(-50%, -50%);
   background-color: #5848a1;
   padding: 10px;
-  height: 50%;
-  width: 35%;
+  height: 40%;
+  width: 30%;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 999;
@@ -295,7 +295,7 @@ h2{
 }
 
 #floating-prompt span{
-  font-size: 18px;
+  font-size: 16px;
   text-align:left;
   position: relative;
 }
@@ -358,7 +358,7 @@ h2{
   width: 100%;
   padding: 10px;
   background-color: #40414f59; /* Adjust as needed */
-  border: 1px solid #f0edede7; /* Adjust as needed */
+  border: 1px solid #080808e7; /* Adjust as needed */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Modified box-shadow */
   border-radius: 5px;
   text-align: center;
