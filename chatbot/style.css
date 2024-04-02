@@ -36,16 +36,18 @@ body {
   height: 90%;
   overflow-y: scroll;
   display: flex;
+  gap: 2px;
   flex-direction: column;
   -ms-overflow-style: none;
   scrollbar-width: auto;
+  padding-bottom: 5px;
   scrollbar-color:  gray transparent; /* chrome, firefox */
   scroll-behavior: smooth;
 }
 
 .wrapper {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
 }
 
 .ai {
