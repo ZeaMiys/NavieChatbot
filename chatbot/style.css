@@ -25,34 +25,27 @@ body {
 #container {
   width: 20%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: block;
   align-items: center;
 
 }
 
 #chat_container {
   flex: 1;
-  width: 90%;
+  width: 100%;
   height: 90%;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  gap: 2px;
   -ms-overflow-style: none;
-  scrollbar-width: none;
-  padding-bottom: 2px;
+  scrollbar-width: auto;
+  scrollbar-color:  gray transparent; /* chrome, firefox */
   scroll-behavior: smooth;
-}
-
-/* hides scrollbar */
-#chat_container::-webkit-scrollbar {
-  display: none;
 }
 
 .wrapper {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
 }
 
 .ai {
@@ -69,14 +62,16 @@ body {
   gap: 2px;
 }
 
+
 .profile {
-  width: 36px;
-  height: 36px;
+  width: 35px;
+  height: 35px;
   border-radius: 5px;
   background: #5436DA;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 5%;
 }
 
 .ai .profile {
@@ -104,11 +99,11 @@ body {
   align-items: center;
 }
 
-
 /* hides scrollbar */
 .message::-webkit-scrollbar {
   display: none;
 }
+
 
 form {
   width: 90%;
@@ -195,7 +190,7 @@ form img {
 }
 
 #new-chat-btn:hover {
-  background: #f0f0f1; /* Change background color on hover */
+  background: #2c2d36; /* Change background color on hover */
 }
 
 #Newchatlogo {
@@ -237,10 +232,11 @@ form img {
 
 h2{
   text-align: center;
+  text-indent: 20px;
   background: #343541;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: normal;
   font-weight:lighter;
   padding: 8px;
@@ -248,12 +244,19 @@ h2{
   width: 100%;
   position: relative;
 }
+#clear{
+  align-items: center;
+  justify-content: center;
+  margin-left: 11px;
+  margin-top: 3px;
+  width: 30px;
+}
 
 #clear-chat-btn {
   display: flex;
   justify-content: left;
-  background: #40414F;
-  width: 16%;
+  background: #424555;
+  width: 20%;
   height: 35px;
   border-radius: 1px;
   cursor: pointer;
@@ -262,7 +265,7 @@ h2{
   top: 0; /* Adjust positioning based on your layout */
   right: 0; /* Adjust positioning based on your layout */
   margin-top: 20px; /* Adjust margin as needed */
-  margin-right: 80%;
+  margin-right: 200px;
   transition: background-color 0.3s;
   color: black;
   z-index: 1; /* Set z-index to display the button in front */
@@ -270,7 +273,7 @@ h2{
 }
 
 #clear-chat-btn:hover {
-  background: #f0f0f1; /* Change background color on hover */
+  background: #343541; /* Change background color on hover */
 }
 
 
@@ -368,12 +371,72 @@ h2{
 }
 
 .prompt-container button:hover {
-  background-color: #e0e0e0; /* Adjust as needed */
+  background-color: #2c2d36; /* Adjust as needed */
 }
 
 .hidden {
   display: none;
 }
+
+#text{
+  display: none;
+  text-align: center;
+  color: #dcdcdc;
+  background-color: #2c2d36;
+  width: 100%;
+  position: relative;
+  font-size: 20px;
+
+}
+
+#create-btn{
+ display: none;
+}
+
+#new{
+  width: 30px;
+  height: 30px;
+}
+
+#exit-btn {
+  position: absolute;
+  top: 0; /* Position at the top of the sidebar */
+  left: 230px; /* Position at the right of the sidebar */
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  width: 30px; /* Button width */
+  height: 30px; /* Button height */
+  cursor: pointer;
+  z-index: 1; /* Ensure button stays above other content */
+  display: none;
+}
+
+#exit-btn:hover {
+  background-color: #2c2d36; /* Change background color on hover */
+}
+
+#exit-btn img {
+  width: 70%; /* Adjust icon size */
+  height: 70%; /* Adjust icon size */
+}
+
+
+.slide-in {
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
 
@@ -381,22 +444,16 @@ h2{
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
-  #container {
-    display: none; /* Hide the whole container div */
-    animation: none; /* Remove animation */
-  }
-
   #app {
-    width: 80%; /* Change to 80% for responsiveness */
-    height: 100vh;
+    width: 100%;
+    height: 93vh;
+    margin: 0 auto; /* Center horizontally */
     background: #343541;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    position: relative; /* Ensure relative positioning */
-    left: 30%; /* Move to the center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
+    position: absolute;
   }
   
   #floating-prompt {
@@ -406,7 +463,7 @@ h2{
     transform: translate(-50%, -50%);
     background-color: #5848a1;
     height: 25%;
-    width: 50%;
+    width: 60%;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: opacity 0.5s ease;
@@ -417,7 +474,7 @@ h2{
   }
   
   #floating-prompt span {
-    font-size: 12px;
+    font-size: 13px;
     text-align: left;
     position: relative;
   }
@@ -431,20 +488,18 @@ h2{
     height: 30%;
   }
 
-
-    /* CSS for the prompt questions */
   .prompt-container {
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 80%;
     bottom: 80px;
   }
 
   /* Style for the buttons */
   .prompt-container button {
     display: block;
-    width: 90%;
+    width: 100%;
     background-color: #40414f59; /* Adjust as needed */
     border: 1px solid #f0edede7; /* Adjust as needed */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Modified box-shadow */
@@ -456,7 +511,7 @@ h2{
   }
 
   .prompt-container button:hover {
-    background-color: #e0e0e0; /* Adjust as needed */
+    background-color: #2c2d36; /* Adjust as needed */
   }
 
   .hidden {
@@ -466,7 +521,7 @@ h2{
   textarea {
     width: 100%;
     color: #fff;
-    font-size: 15px;
+    font-size: 16px;
     padding: 10px;
     background: transparent;
     border-radius: 5px;
@@ -498,8 +553,13 @@ h2{
 
   #menu-btn{
     display: block; /* Display menu button below logo on small screens */
-    z-index: 10000; /* Ensure the menu button remains above other elements */
-    
+    z-index: 999; /* Ensure the menu button remains above other elements */
+    position: absolute;
+    display: inline-block;
+    margin-inline-start: 10%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    margin-top: 10px;
+
   }
 
   #menu-btn.show{
@@ -520,10 +580,6 @@ h2{
     z-index: 9999; /* Set a high z-index value */
   }
 
-  
-  #container.show {
-    display: block; /* Show the container div */
-  }
   
   #icon {
     margin-top: 10px;
@@ -566,7 +622,7 @@ h2{
   }
   
   #new-chat-btn:hover {
-    background: #f0f0f1; /* Change background color on hover */
+    background: #2c2d36; /* Change background color on hover */
   }
 
   #navieText{
@@ -585,7 +641,7 @@ h2{
     height: 63vh; /* Adjust height based on your layout */
     background: #2a2b37;
     border-radius: 2px;
-    margin-top: 247px; /* Adjust margin as needed */
+    margin-top: 240px; /* Adjust margin as needed */
     color: #b6b4b4;
     overflow-y:auto;
     display:flexbox
@@ -608,42 +664,119 @@ h2{
   
   h2{
     text-align: center;
+    text-indent: 20px;
     background: #343541;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     line-height: normal;
     font-weight:lighter;
-    padding: 13px;
-    height: 11%;
+    padding: 8px;
+    height: 35px;
     width: 100%;
+    position: relative;
   }
-  
-  #clear-chat-btn {
-    display: flex;
+
+  #clear{
     align-items: center;
     justify-content: center;
-    background: #40414F;
-    width: 19%;
-    height: 10%;
-    border-radius: 2px;
+    margin-left: 11px;
+    margin-top: 3px;
+    width: 30px;
+  }
+
+  #clear-chat-btn {
+    display: flex;
+    justify-content: left;
+    background: #424555;
+    width: 20%;
+    height: 35px;
+    border-radius: 1px;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     top: 0; /* Adjust positioning based on your layout */
     right: 0; /* Adjust positioning based on your layout */
-    margin-top: 21px; /* Adjust margin as needed */
-    margin-right: 222px;
+    margin-top: 20px; /* Adjust margin as needed */
+    margin-right: 210px;
     transition: background-color 0.3s;
     color: black;
     z-index: 1; /* Set z-index to display the button in front */
     float: left;
   }
-  
+
   #clear-chat-btn:hover {
-    background: #f0f0f1; /* Change background color on hover */
+    background: #343541; /* Change background color on hover */
+  }
+
+  #text{
+    display: block;
+    font-size: 20px;
+    color: #dcdcdc;
+    height: 10%;
+    padding: 12px;
+    box-shadow: #2c2d36;
+  }
+
+  #create-btn {
+    display: flex; /* Display the create button */
+    align-items: center;
+    justify-content: center; 
+    width: auto; /* Allow the width to adjust based on content */
+    height: 30px;
+    border-radius: 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 6px;
+    right: 20px; /* Position the button to the right */
+    transition: background-color 0.3s;
+    color: black;
+    z-index: 1;
+    float: right;
+  }
+
+  #create-btn:hover {
+    background-color: rgb(49, 49, 49); /* Change background color on hover */
+  }
+   
+  #new{
+    width: 26px;
+    height: 26px;
+  }
+
+  #exit-btn {
+    position: absolute;
+    top: 0; /* Position at the top of the sidebar */
+    left: 85%; /* Position at the right of the sidebar */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    width: 35px; /* Button width */
+    height: 35px; /* Button height */
+    cursor: pointer;
+    top: 10px;
+    z-index: 1000; /* Ensure button stays above other content */
+    display: block;
   }
   
+  #exit-btn:hover {
+    background-color: #f2f2f5; /* Change background color on hover */
+  }
+  
+  #exit-btn img {
+    width: 80%; /* Adjust icon size */
+    height: 80%; /* Adjust icon size */
+  }
+
+  .hide {
+    display: none;
+  }
+  
+  
+  
+
+  
+   
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -655,7 +788,6 @@ h2{
   
 
 }
-
 
 
 
