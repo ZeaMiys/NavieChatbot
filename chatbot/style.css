@@ -493,7 +493,7 @@ h2{
   
   #floating-prompt {
     position: absolute;
-    top: 28%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #5848a1;
@@ -812,22 +812,23 @@ h2{
     width: 80px;
     height: 80px;
     position: absolute;
+    padding: 5px;
     top: 15px; /* Adjust top position */
     margin-top: 5px;
     margin-left: 1%;
     align-items: center;
     left: 1px; /* Adjust left position */
     display: block;
-    background-color: #d1dbd9;
+  
   }
   
   #bisuText {
     font-size: 16px;
     position: flex;
-    top: 65px; /* Adjust top position */
+    top: 60px; /* Adjust top position */
     padding-bottom: 10px;
     left: 100px; /* Adjust left position based on the width of bisuImage */
-    margin-left: 80px;
+    margin-left: 72px;
     transform: translate(-50%, -50%);
     width: 70%;
     text-align: left;
@@ -836,8 +837,6 @@ h2{
     color: #cfe4df;
     text-align: center;
     display: block;
-   
-
   }
 
   #navie{
