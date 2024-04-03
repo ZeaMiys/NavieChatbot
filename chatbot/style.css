@@ -616,12 +616,12 @@ h2{
 
   
   #icon {
-    margin-top: 27%;
+    margin-top: 28%;
     padding-top: 10px;
-    width: 85px; /* Set the width to 100% to take the full width */
-    height: 85px;
+    width: 90px; /* Set the width to 100% to take the full width */
+    height: 90px;
     align-items: center;
-    display: none;
+    display: flex;
   }
   
   #logo {
@@ -808,24 +808,24 @@ h2{
   }
 
   #bisuImage {
-    width: 125px;
-    height: 125px;
+    width: 80px;
+    height: 80px;
     position: absolute;
-    top: 12px; /* Adjust top position */
+    top: 15px; /* Adjust top position */
     margin-top: 10px;
-    margin-left: 28%;
+    margin-left: 1%;
     align-items: center;
     left: 1px; /* Adjust left position */
     display: block;
   }
   
   #bisuText {
-    font-size: 120%;
+    font-size: 100%;
     position: flex;
     top: 70px; /* Adjust top position */
-    margin-top: 90px;
+    margin-top: 1px;
     padding-bottom: 10px;
-    left: 50%; /* Adjust left position based on the width of bisuImage */
+    left: 60%; /* Adjust left position based on the width of bisuImage */
     margin-left: 5px;
     transform: translate(-50%, -50%);
     width: 90%;
