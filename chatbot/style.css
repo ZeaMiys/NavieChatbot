@@ -616,15 +616,12 @@ h2{
 
   
   #icon {
-    margin-top: 32%;
+    margin-top: 27%;
     padding-top: 10px;
-    width: 80px; /* Set the width to 100% to take the full width */
-    height: 80px;
+    width: 85px; /* Set the width to 100% to take the full width */
+    height: 85px;
     align-items: center;
-    display: block;
-    background: #5848a1;
-    padding: 5px;
-    border-radius: 10px;
+    display: none;
   }
   
   #logo {
@@ -651,7 +648,7 @@ h2{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
     position: fixed; /* Change position to fixed */
-    top: 30px; 
+    top: 4%; 
     left: 40%; /* Move to the center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     transition: background-color 0.3s; /* Add transition for smooth color change */
@@ -811,45 +808,48 @@ h2{
   }
 
   #bisuImage {
-    width: 90px;
-    height: 90px;
+    width: 125px;
+    height: 125px;
     position: absolute;
     top: 12px; /* Adjust top position */
     margin-top: 10px;
+    margin-left: 28%;
     align-items: center;
     left: 1px; /* Adjust left position */
     display: block;
   }
   
   #bisuText {
-    font-size: 18px;
+    font-size: 120%;
     position: flex;
-    top: 57px; /* Adjust top position */
-    margin-top: 10px;
+    top: 70px; /* Adjust top position */
+    margin-top: 90px;
     padding-bottom: 10px;
-    left: 43%; /* Adjust left position based on the width of bisuImage */
+    left: 50%; /* Adjust left position based on the width of bisuImage */
     margin-left: 5px;
-    transform: translate(-25%, -50%);
-    width: 75%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     text-align: center;
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #cfe4df;
     text-align: center;
     display: block;
+   
 
   }
 
   #navie{
-    font-size: 20px;
+    font-size: 120%;
     position: absolute;
     top: 100px; /* Adjust top position */
     margin-top: 100px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     left: 50%;
     margin-left: 5px;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 90%;
     text-align: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
