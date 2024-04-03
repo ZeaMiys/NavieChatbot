@@ -828,7 +828,7 @@ h2{
     left: 50%; /* Adjust left position based on the width of bisuImage */
     margin-left: 5px;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 90%;
     text-align: center;
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
