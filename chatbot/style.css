@@ -617,7 +617,8 @@ h2{
   
   #icon {
     margin-top: 26%;
-    padding-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     width: 90px; /* Set the width to 100% to take the full width */
     height: 90px;
     align-items: center;
@@ -817,6 +818,7 @@ h2{
     align-items: center;
     left: 1px; /* Adjust left position */
     display: block;
+    background-color: #d1dbd9;
   }
   
   #bisuText {
@@ -839,7 +841,7 @@ h2{
   }
 
   #navie{
-    font-size: 120%;
+    font-size: 20px;
     position: absolute;
     top: 100px; /* Adjust top position */
     margin-top: 95px;
@@ -848,7 +850,7 @@ h2{
     left: 50%;
     margin-left: 5px;
     transform: translate(-50%, -50%);
-    width: 90%;
+    width: 80%;
     text-align: center;
     align-items: center;
     font-family:Georgia, 'Times New Roman', Times, serif;
