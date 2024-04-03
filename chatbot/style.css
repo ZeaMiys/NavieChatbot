@@ -616,12 +616,15 @@ h2{
 
   
   #icon {
-    margin-top: 20px;
+    margin-top: 32%;
     padding-top: 10px;
-    width: 100px; /* Set the width to 100% to take the full width */
-    height: 100px;
+    width: 80px; /* Set the width to 100% to take the full width */
+    height: 80px;
     align-items: center;
-    display: none;
+    display: block;
+    background: #5848a1;
+    padding: 5px;
+    border-radius: 10px;
   }
   
   #logo {
@@ -808,13 +811,11 @@ h2{
   }
 
   #bisuImage {
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
     position: absolute;
-    top: 10px; /* Adjust top position */
+    top: 12px; /* Adjust top position */
     margin-top: 10px;
-    margin-right: 10px;
-    margin-left: 30%;
     align-items: center;
     left: 1px; /* Adjust left position */
     display: block;
@@ -823,13 +824,13 @@ h2{
   #bisuText {
     font-size: 18px;
     position: flex;
-    top: 100px; /* Adjust top position */
-    margin-top: 55px;
+    top: 57px; /* Adjust top position */
+    margin-top: 10px;
     padding-bottom: 10px;
-    left: 50%; /* Adjust left position based on the width of bisuImage */
+    left: 43%; /* Adjust left position based on the width of bisuImage */
     margin-left: 5px;
-    transform: translate(-50%, -50%);
-    width: 80%;
+    transform: translate(-25%, -50%);
+    width: 75%;
     text-align: center;
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -840,7 +841,7 @@ h2{
   }
 
   #navie{
-    font-size: 18px;
+    font-size: 20px;
     position: absolute;
     top: 100px; /* Adjust top position */
     margin-top: 100px;
