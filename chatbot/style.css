@@ -183,7 +183,7 @@ form img {
   text-align: center;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   position: absolute;
   z-index: 1;
   margin-top: 190px;
@@ -233,12 +233,12 @@ form img {
 }
 
 h2{
-  text-align: center;
-  text-indent: 20px;
+  text-align: left;
+  text-indent: 5px;
   background: #343541;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   line-height: normal;
   font-weight:lighter;
   padding: 8px;
@@ -247,27 +247,24 @@ h2{
   position: relative;
 }
 #clear{
-  align-items: center;
+  align-items: left;
   justify-content: center;
   margin-left: 11px;
   margin-top: 3px;
-  width: 30px;
+  width: 25px;
 }
 
 #clear-chat-btn {
   display: flex;
   justify-content: left;
-  background: #424555;
-  width: 20%;
-  height: 35px;
   border-radius: 1px;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   position: absolute;
   top: 0; /* Adjust positioning based on your layout */
   right: 0; /* Adjust positioning based on your layout */
-  margin-top: 20px; /* Adjust margin as needed */
-  margin-right: 200px;
+  margin-top: 23px; /* Adjust margin as needed */
+  margin-right: 30px;
   transition: background-color 0.3s;
   color: black;
   z-index: 1; /* Set z-index to display the button in front */
@@ -423,6 +420,28 @@ h2{
   height: 70%; /* Adjust icon size */
 }
 
+#bisuImage {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px; /* Adjust top position */
+  left: 10px; /* Adjust left position */
+  display: none;
+}
+
+#bisuText {
+  font-size: 15px;
+  position: absolute;
+  top: 10px; /* Adjust top position */
+  left: 45px; /* Adjust left position based on the width of bisuImage */
+  display: none;
+}
+
+#navie{
+  display: none;
+}
+
+
 
 .slide-in {
   animation: slideIn 0.5s ease forwards;
@@ -443,7 +462,6 @@ h2{
 
 
 
-
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
   #app {
@@ -457,10 +475,25 @@ h2{
     justify-content: space-between;
     position: absolute;
   }
+
+  #chat_container {
+    flex: 1;
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+    -ms-overflow-style: none;
+    scrollbar-width: auto;
+    padding-bottom: 5px;
+    scrollbar-color:  gray transparent; /* chrome, firefox */
+    scroll-behavior: smooth;
+  }
   
   #floating-prompt {
     position: absolute;
-    top: 30%;
+    top: 28%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #5848a1;
@@ -476,7 +509,7 @@ h2{
   }
   
   #floating-prompt span {
-    font-size: 13px;
+    font-size: 15px;
     text-align: left;
     position: relative;
   }
@@ -503,7 +536,7 @@ h2{
     display: block;
     width: 100%;
     background-color: #40414f59; /* Adjust as needed */
-    border: 1px solid #f0edede7; /* Adjust as needed */
+    border: 1px solid #080808e7; /* Adjust as needed */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Modified box-shadow */
     border-radius: 5px;
     text-align: center;
@@ -534,7 +567,7 @@ h2{
   .message {
     flex: 1;
     color: #dcdcdc;
-    font-size: 13px;
+    font-size: 15px;
     max-width: 100%;
     overflow-x: scroll;
     white-space: pre-wrap;
@@ -551,7 +584,6 @@ h2{
   .message::-webkit-scrollbar {
     display: none;
   }
-
 
   #menu-btn{
     display: block; /* Display menu button below logo on small screens */
@@ -584,11 +616,12 @@ h2{
 
   
   #icon {
-    margin-top: 10px;
-    padding-top: 5px;
+    margin-top: 20px;
+    padding-top: 10px;
     width: 100px; /* Set the width to 100% to take the full width */
-    height: 90px;
+    height: 100px;
     align-items: center;
+    display: none;
   }
   
   #logo {
@@ -613,9 +646,9 @@ h2{
     text-align: center;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 22px;
     position: fixed; /* Change position to fixed */
-    top: 1px; 
+    top: 30px; 
     left: 40%; /* Move to the center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     transition: background-color 0.3s; /* Add transition for smooth color change */
@@ -629,12 +662,14 @@ h2{
 
   #navieText{
     text-align: center;
-    font-size: 25px; /* Increase font size */
+    font-size: 18px; /* Increase font size */
     color: #cfe4df;
-    margin-bottom: 950px; /* Add margin to move it below the image */
+    top: 1px; /* Add margin to move it below the image */
     padding: 15px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-top: 150px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 500px;
+    display: none;
     
   }
   #sidebar {
@@ -665,14 +700,15 @@ h2{
   }
   
   h2{
-    text-align: center;
-    text-indent: 20px;
+    text-align: left;
+    text-indent: 5px;
     background: #343541;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 22px;
+    font-weight: 500px;
     line-height: normal;
-    font-weight:lighter;
+    font-weight: lighter;
     padding: 8px;
     height: 35px;
     width: 100%;
@@ -680,27 +716,24 @@ h2{
   }
 
   #clear{
-    align-items: center;
+    align-items: left;
     justify-content: center;
     margin-left: 11px;
     margin-top: 3px;
-    width: 30px;
+    width: 25px;
   }
 
   #clear-chat-btn {
     display: flex;
     justify-content: left;
-    background: #424555;
-    width: 20%;
-    height: 35px;
     border-radius: 1px;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     top: 0; /* Adjust positioning based on your layout */
     right: 0; /* Adjust positioning based on your layout */
-    margin-top: 20px; /* Adjust margin as needed */
-    margin-right: 210px;
+    margin-top: 23px; /* Adjust margin as needed */
+    margin-right: 30px;
     transition: background-color 0.3s;
     color: black;
     z-index: 1; /* Set z-index to display the button in front */
@@ -738,7 +771,7 @@ h2{
   }
 
   #create-btn:hover {
-    background-color: rgb(49, 49, 49); /* Change background color on hover */
+    background-color: rgb(156, 151, 151); /* Change background color on hover */
   }
    
   #new{
@@ -773,8 +806,57 @@ h2{
   .hide {
     display: none;
   }
+
+  #bisuImage {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 10px; /* Adjust top position */
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 30%;
+    align-items: center;
+    left: 1px; /* Adjust left position */
+    display: block;
+  }
   
-  
+  #bisuText {
+    font-size: 18px;
+    position: flex;
+    top: 100px; /* Adjust top position */
+    margin-top: 55px;
+    padding-bottom: 10px;
+    left: 50%; /* Adjust left position based on the width of bisuImage */
+    margin-left: 5px;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #cfe4df;
+    text-align: center;
+    display: block;
+
+  }
+
+  #navie{
+    font-size: 18px;
+    position: absolute;
+    top: 100px; /* Adjust top position */
+    margin-top: 100px;
+    padding-bottom: 10px;
+    left: 50%;
+    margin-left: 5px;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #cfe4df;
+    text-align: center;
+    display: block;
+  }
+
   
 
   

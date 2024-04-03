@@ -274,6 +274,7 @@ function getChatHistory() {
 
 // Function to display full conversation when clicked
 function displayFullChat(conversation) {
+
   // Hide prompt message and prompt question
   hidePrompts();
 
@@ -361,17 +362,26 @@ window.addEventListener('load', checkWindowSize);
 window.addEventListener('resize', checkWindowSize);
 
 // Function to create a new conversation
+// Function to create a new conversation
 function createNewConversation() {
   // Clear the chat container to start a new session
   chatContainer.innerHTML = '';
 
   // Display chat history in the sidebar
   displayChatHistory();
+
+  // Show the prompt container and message prompt
+  const promptContainer = document.getElementById('prompt-container');
+  promptContainer.classList.remove('hidden');
+
+  const floatingPrompt = document.getElementById('floating-prompt');
+  floatingPrompt.classList.remove('hide');
 }
 
 // Add an event listener to the create button in the media queries
 const createBtn = document.getElementById('create-btn'); // Assuming 'create-btn' is the ID of the create button
 createBtn.addEventListener('click', createNewConversation);
+
 
 // Assuming you have variables defined for your exit button and container div
 const exitBtn = document.getElementById('exit-btn');
@@ -417,3 +427,5 @@ const containerDiv4 = document.getElementById('container');
 exitBtn4.addEventListener('click', () => {
   containerDiv4.style.display = 'none';
 });
+
+
