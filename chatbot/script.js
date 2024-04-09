@@ -278,6 +278,14 @@ function displayFullChat(conversation) {
   // Hide prompt message and prompt question
   hidePrompts();
 
+  // Conditionally hide the container div based on media queries
+  const containerDiv = document.getElementById('container');
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    containerDiv.style.display = 'none';
+  } else {
+    containerDiv.style.display = 'block'; // Ensure it's visible on larger screens
+  }
+
   // Clear chat container
   chatContainer.innerHTML = '';
 
@@ -288,7 +296,6 @@ function displayFullChat(conversation) {
   chatContainer.innerHTML += chatStripe(true, conversation.response);
 }
 
-
 function displayChatHistory() {
   const chatHistory = getChatHistory();
 
@@ -297,7 +304,7 @@ function displayChatHistory() {
     const listItem = document.createElement('li');
     listItem.textContent = conversation.question;
 
-    // Add click event listener to display full chat
+    // Add click event listener to display full chat and hide sidebar
     listItem.addEventListener('click', () => {
       displayFullChat(conversation);
     });
@@ -305,6 +312,7 @@ function displayChatHistory() {
     chatHistoryList.appendChild(listItem);
   });
 }
+
 
 // Redisplay chat history when clicked again
 chatHistoryList.addEventListener('click', () => {
@@ -427,5 +435,7 @@ const containerDiv4 = document.getElementById('container');
 exitBtn4.addEventListener('click', () => {
   containerDiv4.style.display = 'none';
 });
+
+
 
 
