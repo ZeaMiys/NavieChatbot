@@ -625,7 +625,7 @@ h2{
     color: #fff;
     text-align: center;
     align-items: center;
-    width: 65vw;
+    width: 100vw;
     font-family: "Alegreya Sans", sans-serif;
     font-style: normal;
     font-weight: 400;  
@@ -713,9 +713,10 @@ h2{
 
   #icon{
     padding-top: 5px;
-    margin-top: 3vh;
-    width: 100px;
-    height: 100px;
+    margin-top: 2vh;
+    width: 90px;
+    height: 90px;
+    padding-bottom: 5px;
     align-items: center;
   }
   
@@ -725,6 +726,7 @@ h2{
     color: #cfe4df;
     margin-bottom: 120vh; /* Add margin to move it below the image */
     padding: 10px;
+    margin-top: 5px;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight: 500px;
     
@@ -754,7 +756,7 @@ h2{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
     position: fixed; /* Change position to fixed */
-    bottom: 70vh;
+    top: 1px;
     left: 40%; /* Move to the center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     transition: background-color 0.3s; /* Add transition for smooth color change */
@@ -777,11 +779,11 @@ h2{
   #sidebar {
     width: 100%;
     position:absolute;
-    height: 63vh; /* Adjust height based on your layout */
+    height: 70vh; /* Adjust height based on your layout */
     background: #2a2b37;
     border-radius: 2px;
     margin-top: 240px; /* Adjust margin as needed */
-    bottom: 1vh;
+    bottom: -1vh;
     color: #b6b4b4;
     overflow-y:auto;
     display:flexbox
@@ -917,8 +919,9 @@ h2{
     width: 80px;
     height: 80px;
     position: absolute;
-    padding-top: 5px;
-    bottom: 1vh; /* Adjust top position */
+    padding-top: 2px;
+    bottom: -1vh; /* Adjust top position */
+    padding-bottom: 5px;
     left: 5px; /* Adjust left position */
     display: flex;
   }
@@ -931,8 +934,8 @@ h2{
     color: #cfe4df;
     padding-left: 5px;
     padding-right: 5px;
-    padding-bottom: 15px;
-    bottom: 1vh; /* Adjust top position */
+    padding-bottom: 20px;
+    bottom: -1vh; /* Adjust top position */
     font-family: Arial, Helvetica, sans-serif;
     left: 20vw; /* Adjust left position based on the width of bisuImage */
     display: flex;
