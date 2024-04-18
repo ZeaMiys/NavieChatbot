@@ -587,6 +587,7 @@ h2{
   position: absolute;
   display: flex;
   flex-direction: column;
+  position: absolute;
   width: 80%;
   height: 8%;
   margin-top: 95%;
@@ -606,7 +607,8 @@ h2{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Modified box-shadow */
   border-radius: 5px;
   text-align: center;
-  top: 95%;
+  position: relative;
+  top: 30%;
   color: #fff;
   background: transparent;
   cursor: pointer;
