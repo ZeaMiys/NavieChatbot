@@ -726,6 +726,7 @@ h2{
     color: #cfe4df;
     margin-bottom: 120vh; /* Add margin to move it below the image */
     padding: 10px;
+    margin-top: 30vh;
     margin-top: 5px;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight: 500px;
@@ -784,7 +785,7 @@ h2{
     height: 63vh; /* Adjust height based on your layout */
     background: #2a2b37;
     border-radius: 2px;
-    margin-top: 240px; /* Adjust margin as needed */
+    margin-top: 50vh; /* Adjust margin as needed */
     bottom: -1vh;
     color: #b6b4b4;
     overflow-y:auto;
