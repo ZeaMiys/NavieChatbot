@@ -589,7 +589,7 @@ h2{
   flex-direction: column;
   width: 80%;
   height: 8%;
-  margin-top: 45vh;
+  margin-top: 95%;
   gap: 15px;
 }
 
@@ -606,6 +606,7 @@ h2{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Modified box-shadow */
   border-radius: 5px;
   text-align: center;
+  top: 95%;
   color: #fff;
   background: transparent;
   cursor: pointer;
@@ -714,8 +715,8 @@ h2{
   #icon{
     padding-top: 5px;
     margin-top: 5px;
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     padding-bottom: 5px;
     align-items: center;
   }
@@ -748,7 +749,7 @@ h2{
     justify-content: justify; /* Center items horizontally */
     background: #40414F;
     border-radius: 10px;
-    width: 65%; /* Adjust width to fit smaller screens */
+    width: 60%; /* Adjust width to fit smaller screens */
     height: 6%;
     text-align: left;
     cursor: pointer;
@@ -919,7 +920,7 @@ h2{
     width: 80px;
     height: 80px;
     position: absolute;
-    padding-top: 2px;
+    padding-top: 5px;
     bottom: -1vh; /* Adjust top position */
     padding-bottom: 5px;
     left: 5px; /* Adjust left position */
