@@ -755,7 +755,7 @@ h2{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
     position: fixed; /* Change position to fixed */
-    top: -1px; /* Adjust top position */
+    top: -5px; /* Adjust top position */
     left: 40%; /* Move to the center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     transition: background-color 0.3s; /* Add transition for smooth color change */
