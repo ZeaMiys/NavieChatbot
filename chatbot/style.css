@@ -583,16 +583,13 @@ h2{
 
 /* CSS for the prompt questions */
 .prompt-container {
-  margin-bottom: 10px;
   position: absolute;
   display: flex;
   flex-direction: column;
-  position: absolute;
   width: 80%;
-  height: 8%;
-  margin-top: 95%;
-  gap: 15px;
+  bottom: 300px;
 }
+
 
 
 
@@ -602,13 +599,13 @@ h2{
   width: 100%;
   padding: 10px;
   font-weight: 350;
-  font-size: 15px;
+  font-size: 13px;
   border: 1px solid #ebe5e5e7; /* Adjust as needed */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Modified box-shadow */
   border-radius: 5px;
   text-align: center;
   position: relative;
-  top: 30%;
+  top: 60%;
   color: #fff;
   background: transparent;
   cursor: pointer;
