@@ -17,17 +17,18 @@ function loader(element) {
   element.textContent = '';
   loadInterval = setInterval(() => {
     element.textContent += '.';
-    if (element.textContent === '....') {
+    if (element.textContent === '...') { // Adjusted to three dots for faster display
       element.textContent = '';
     }
-  }, 200);
+  }, 1000); // Reduced interval time to make the loader faster
 }
+
 
 // Function to simulate typing animation
 async function typeText(element, text) {
   let index = 0;
-  const speed = 10; // Adjust the typing speed (milliseconds per character); Typing speed in milliseconds per character
-  const delayAfterTyping = 300; // Adjust the delay after typing all characters (milliseconds)
+  const speed = 5; // Adjust the typing speed (milliseconds per character); Typing speed in milliseconds per character
+  const delayAfterTyping = 10; // Adjust the delay after typing all characters (milliseconds)
 
   // Clear the existing content of the element
   element.innerHTML = '';
@@ -108,6 +109,8 @@ async function handleSubmit(e) {
   // Display bot's loader and response
   const uniqueID = generateUniqueID();
   chatContainer.innerHTML += chatStripe(true, '', uniqueID); // Leave the message content empty initially
+
+  // Call loader function immediately to start loader animation
   loader(document.getElementById(uniqueID)); // Start loader animation
 
   // Call server API with user's message and display bot's response
@@ -122,6 +125,9 @@ async function handleSubmit(e) {
       const chatHistory = getChatHistory();
       chatHistory.push(conversation);
       localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+
+      // Hide prompt message and prompt question after submitting the form
+      hidePrompts();
     })
     .catch((error) => {
       clearInterval(loadInterval); // Clear loader animation interval
@@ -129,6 +135,8 @@ async function handleSubmit(e) {
       console.error(error);
     });
 }
+
+
 
 // Add event listeners for form submission and keyup events
 form.addEventListener('submit', handleSubmit);
@@ -139,7 +147,7 @@ form.addEventListener('keyup', (e) => {
 });
 
 
-// Function to display prompt questions 
+
 // Function to display prompt questions 
 async function displayPromptQuestions() {
   const promptQuestions = ['Grading System of Bisu?', 'Registration Requirements?', 'What scholarship offers are available at BISU?', 'Types of offenses and their corresponding penalty?'];
@@ -200,8 +208,8 @@ document.querySelector('textarea[name="prompt"]').addEventListener('input', () =
 });
 
 // Initialize SpeechRecognition API
-const SpeechRecognition =
-  window.SpeechRecognition || window.webkitSpeechRecognition;
+// Initialize SpeechRecognition API
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
 recognition.continuous = false;
@@ -213,17 +221,18 @@ const floatingPrompt1 = document.getElementById('floating-prompt');
 const promptContainer = document.querySelector('.prompt-container'); // Target the prompt container
 
 voiceBtn.addEventListener('click', () => {
+  // Start speech recognition when the voice button is clicked
   recognition.start();
+  // Hide the floating prompt and prompt container when speech recognition starts
   floatingPrompt1.classList.add('hide');
   if (promptContainer) {
     promptContainer.classList.add('hidden'); // Hide the prompt container if it exists
   }
-  hidePrompts(); // Add this line to hide the prompts when the microphone button is clicked
+  hidePrompts(); // Hide the prompts when the microphone button is clicked
 });
 
-
-
 recognition.addEventListener('result', (event) => {
+  // Capture the recognized speech and set it as the value of the textarea
   const transcript = event.results[0][0].transcript;
   textarea.value = transcript; // Set the value of the textarea to the recognized speech
 });
@@ -232,7 +241,6 @@ recognition.addEventListener('end', () => {
   // After speech recognition ends, submit the form to handle the user's question
   handleSubmit(new Event('submit'));
 });
-
 
 
 
@@ -348,12 +356,10 @@ menuBtn.addEventListener('click', () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(function () {
-    var floatingPrompt = document.getElementById("floating-prompt");
-    floatingPrompt.classList.remove("hide");
-    // Show the container div after 3 seconds
-    showContainerDiv();
-  }, 500); // Delay for 3 seconds (3000 milliseconds)
+  var floatingPrompt = document.getElementById("floating-prompt");
+  floatingPrompt.classList.remove("hide");
+  // Show the container div immediately
+  showContainerDiv();
 });
 
 // Check window size and hide container div if necessary
