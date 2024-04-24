@@ -212,7 +212,7 @@ form img {
   z-index: 1;
   margin-top: 25vh;
   transition: background-color 0.3s; /* Add transition for smooth color change */
-  color: #cfe4df;
+  color: white;
 }
 
 #new-chat-btn:hover {
